@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conway's Game of Life</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      width: 100vw;
+      background-color: #282c34;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+    #gameCanvas {
+      border: 1px solid #666;
+      margin-top: 20px;
+    }
+    #controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    button, input[type="text"] {
+      background-color: #61dafb;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+    }
+    button:hover, input[type="text"]:hover {
+      background-color: #21a1f1;
+    }
+    #bpmInput {
+      width: 60px;
+      text-align: center;
+    }
+    #metronomeLight {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: gray;
+      transition: background-color 0.1s;
+    }
+  </style>
+</head>
+<body>
+  <h1>Conway's Game of Life</h1>
+  <canvas id="gameCanvas"></canvas>
+  <div id="controls">
+    <button id="startStopButton" onclick="toggleGame()">Start</button>
+    <button onclick="clearGrid()">Clear</button>
+    <label for="bpmInput">BPM:</label>
+    <input type="text" id="bpmInput" value="60" oninput="updateSpeed()">
+    <div id="metronomeLight"></div>
+    <button id="speedMultiplierButton" onclick="cycleSpeedMultiplier()">Quarter</button>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
